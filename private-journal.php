@@ -44,3 +44,13 @@ function private_journal_init() {
 
 	register_post_type( 'pj_entry', $args );
 }
+
+function pj_date_after_title( $data ) {
+
+
+		$data['post_title'] = $data['post_name'] = $data['post_date'];
+
+	return $data;
+}
+
+add_filter( 'wp_insert_post_data', 'status_title_filter' );
